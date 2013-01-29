@@ -1,5 +1,19 @@
 source ~/.vim/bundles.vim
 
+" Pathogen load
+filetype off
+
+call pathogen#infect()
+call pathogen#helptags()
+
+" hightlight column 80 and set 80 to red
+if exists('+colorcolumn')
+    set colorcolumn=80
+else
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
+hi ColorColumn ctermbg=red ctermfg=white guibg=#592929
+
 " encoding dectection
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 
